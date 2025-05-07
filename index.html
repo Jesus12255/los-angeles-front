@@ -7,7 +7,7 @@
             function login() {
                 const usuario = document.getElementById("usuario").value;
                 const clave = document.getElementById("clave").value;
-                localStorage.setItem("baseUrl", "http://ec2-3-87-203-45.compute-1.amazonaws.com:9091/ms-los-angeles-backend-api/api");
+                localStorage.setItem("baseUrl", "https://ec2-3-87-203-45.compute-1.amazonaws.com:9091/ms-los-angeles-backend-api/api");
 
                 $.ajax({
                     url: localStorage.getItem("baseUrl") + "/auth/login",
