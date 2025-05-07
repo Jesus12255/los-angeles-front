@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/index.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            function login() {
+                const usuario = document.getElementById("usuario").value;
+                const clave = document.getElementById("clave").value;
+                localStorage.setItem("baseUrl", "http://ec2-3-87-203-45.compute-1.amazonaws.com:9091/ms-los-angeles-backend-api/api");
+
+                $.ajax({
+                    url: localStorage.getItem("baseUrl") + "/auth/login",
+                    method: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        usuario: usuario,
+                        password: clave
+                    }),
+                    success: function (response) {
+                        localStorage.setItem("authToken", response.token);
+                        localStorage.setItem("usuario", response.usuario);
+                        localStorage.setItem("rol", response.rol);
+                        alert("Inicio de sesión exitoso.");
+                        // Redirigir a otra página si es necesario
+                        window.location.href = "formulario.html";
+                    },
+                    error: function () {
+                        document.getElementById("mensaje").innerText = "Credenciales incorrectas";
+                        document.getElementById("mensaje").style.color = "red";
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" placeholder="Escribe tu usuario">
+
+            <label for="clave">Contraseña</label>
+            <input type="password" id="clave" placeholder="Escribe tu contraseña">
+
+            <button onclick="login()">Ingresar</button>
+
+            <p id="mensaje"></p>
+        </div>
+    </body>
+</html>
