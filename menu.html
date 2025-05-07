@@ -1,29 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">RPCA</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Formulario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">Enviados</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item d-flex align-items-center">
-                    <!-- Imagen circular -->
-                    <img src="resource/usuario.png" alt="Usuario" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
-                    <!-- Nombre de usuario y rol -->
-                    <label class="nav-link mb-0" id="Usuario">
-                        <strong>NombreUsuario</strong><br>
-                        <small>RolUsuario</small>
-                    </label>
-                </li>
-            </ul>
+<!-- Botón de alternar fuera del menú -->
+<button id="btnMenu" class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- Menú lateral -->
+<nav class="navbar navbar-dark bg-dark flex-column">
+    <div class="container-menu">
+        <a class="navbar-brand mb-3" href="#">RPCA</a>
+        
+        <hr class="menu-separator">
+        
+        <ul class="navbar-nav ms-auto mt-auto">
+            <li class="nav-item d-flex align-items-center">
+                <!-- Imagen circular -->
+                <img src="/resource/usuario.png" alt="Usuario" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
+                <!-- Nombre de usuario y rol -->
+                <label class="nav-link mb-0" id="Usuario">
+                    <strong>NombreUsuario</strong><br>
+                    <small>RolUsuario</small>
+                </label>
+            </li>
+        </ul>
+        <hr class="menu-separator">
+
+        <div id="container-btns">
+           
         </div>
+        
+       
+       
+       
     </div>
 </nav>

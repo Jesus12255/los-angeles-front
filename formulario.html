@@ -8,6 +8,7 @@
     <meta name="author" content="" />
     <title>CLINICA</title>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -29,140 +30,141 @@
 
     <div id="menu-container"></div>
 
-    <div class="container mt-4">
-        <div class="card shadow" style="max-width: 800px; margin: 0 auto;">
-            <div class="card-header bg-dark text-white">
-                <h5 class="mb-0">Agregar Paciente</h5>
+    <div class="content">
+        <div class="container">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">Agregar Paciente</h5>
+                </div>
+                <div class="card-body">
+                    <form id="miFormulario">
+                        <!-- TIPO - DOCUMENTO -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
+                                <select class="form-select" id="tipoDocumento" name="tipoDocumento" required>
+                                    <option value="" disabled selected>Selecciona una opción</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="numDocumento" class="form-label">DNI del Paciente</label>
+                                <input type="number" class="form-control" id="paciente" name="paciente" required>
+                            </div>
+                        </div><br>
+                        <!-- APELLIDOS - NOMBRES -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
+                                        <input type="text" class="form-control" id="apPaterno" name="apPaterno" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
+                                        <input type="text" class="form-control" id="apMaterno" name="apMaterno" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nombres" class="form-label">Nombres</label>
+                                <input type="text" class="form-control" id="nombres" name="nombres" required>
+                            </div>
+                        </div><br>
+                        <!-- FECHA - EDAD - SEXO - PRIORIDAD -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                        <input type="date" class="form-control" id="fech_nac" name="fech_nac" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="edad" class="form-label">Edad</label>
+                                        <input type="number" class="form-control" id="edad" name="edad" required readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="sexo" class="form-label">Sexo</label>
+                                        <select class="form-select" id="sexo" name="sexo" required>
+                                            <option value="" disabled selected>Selecciona</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="prioridad" class="form-label">Prioridad</label>
+                                        <select class="form-select" id="prioridad" name="prioridad" required>
+                                            <option value="" disabled selected>Selecciona</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <!-- HIST. CLINICA - FECHA MUESTRA -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="historiaClinica" class="form-label">Historia Clínica</label>
+                                <input type="text" class="form-control" id="hist_cli" name="hist_cli" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="fechaMuestra" class="form-label">Fecha Toma de Muestra</label>
+                                <input type="datetime-local" class="form-control" id="fech_mue" name="fech_mue" required>
+                            </div>
+                        </div><br>
+                        <!-- TELEF- CORREO -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="telefono" class="form-label">Número de Teléfono</label>
+                                <input type="number" class="form-control" id="telef" name="telef" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="correo" class="form-label">Correo</label>
+                                <input type="email" class="form-control" id="correo" name="correo">
+                            </div>
+                        </div><br>
+                        <!-- DIRECCION- COMENT -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="direccion" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" name="direccion">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="comentario" class="form-label">Comentario</label>
+                                <textarea class="form-control" id="comentario" rows="1" name="comentario" required></textarea>
+                            </div>
+                        </div><br>
+                        <!-- APELLIDOS - NOMBRES -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="codigo" class="form-label">Código</label>
+                                        <input type="number" class="form-control" id="codigo" name="codigo" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="cmp" class="form-label">C.M.P.</label>
+                                        <input type="text" class="form-control" id="cmp" name="cmp" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="medico" class="form-label">Médico</label>
+                                <select class="form-select" id="medico" name="medico" required>
+                                    <option value="" disabled selected>Selecciona</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Botones -->
+                        <div class="row">
+                            <div class="text-end mt-4">
+                                <button class="btn btn-primary btn-xl w-100 btn-form" id="submitButton" type="submit">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                </div>
             </div>
-            <div class="card-body">
-                <form id="miFormulario">
-                    <!-- TIPO - DOCUMENTO -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
-                            <select class="form-select" id="tipoDocumento" name="tipoDocumento" required>
-                                <option value="" disabled selected>Selecciona una opción</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="numDocumento" class="form-label">DNI del Paciente</label>
-                            <input type="number" class="form-control" id="paciente" name="paciente" required>
-                        </div>
-                    </div><br>
-                    <!-- APELLIDOS - NOMBRES -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
-                                    <input type="text" class="form-control" id="apPaterno" name="apPaterno" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
-                                    <input type="text" class="form-control" id="apMaterno" name="apMaterno" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="nombres" class="form-label">Nombres</label>
-                            <input type="text" class="form-control" id="nombres" name="nombres" required>
-                        </div>
-                    </div><br>
-                    <!-- FECHA - EDAD - SEXO - PRIORIDAD -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="fech_nac" name="fech_nac" required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="edad" class="form-label">Edad</label>
-                                    <input type="number" class="form-control" id="edad" name="edad" required readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="sexo" class="form-label">Sexo</label>
-                                    <select class="form-select" id="sexo" name="sexo" required>
-                                        <option value="" disabled selected>Selecciona</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="prioridad" class="form-label">Prioridad</label>
-                                    <select class="form-select" id="prioridad" name="prioridad" required>
-                                        <option value="" disabled selected>Selecciona</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div><br>
-                    <!-- HIST. CLINICA - FECHA MUESTRA -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="historiaClinica" class="form-label">Historia Clínica</label>
-                            <input type="text" class="form-control" id="hist_cli" name="hist_cli" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="fechaMuestra" class="form-label">Fecha Toma de Muestra</label>
-                            <input type="datetime-local" class="form-control" id="fech_mue" name="fech_mue" required>
-                        </div>
-                    </div><br>
-                    <!-- TELEF- CORREO -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="telefono" class="form-label">Número de Teléfono</label>
-                            <input type="number" class="form-control" id="telef" name="telef" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="correo" class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="correo" name="correo">
-                        </div>
-                    </div><br>
-                    <!-- DIRECCION- COMENT -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="direccion" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="comentario" class="form-label">Comentario</label>
-                            <textarea class="form-control" id="comentario" rows="1" name="comentario" required></textarea>
-                        </div>
-                    </div><br>
-                    <!-- APELLIDOS - NOMBRES -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="codigo" class="form-label">Código</label>
-                                    <input type="number" class="form-control" id="codigo" name="codigo" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="cmp" class="form-label">C.M.P.</label>
-                                    <input type="text" class="form-control" id="cmp" name="cmp" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="medico" class="form-label">Médico</label>
-                            <select class="form-select" id="medico" name="medico" required>
-                                <option value="" disabled selected>Selecciona</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Botones -->
-                    <div class="row">
-                        <div class="text-end mt-4">
-                            <button class="btn btn-primary btn-xl w-100 btn-form" id="submitButton" type="submit">
-                                Enviar
-                            </button>
-                        </div>
-                    </div>
-            </div>
-            </form>
         </div>
     </div>
 

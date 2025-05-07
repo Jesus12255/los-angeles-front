@@ -1,4 +1,84 @@
-.input-error {
-    border: 2px solid red;
-    box-shadow: 0 0 5px red;
+/* Ajustar el contenedor principal para que ocupe todo el espacio disponible */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+}
+
+#menu-container {
+    width: 250px; /* Ancho del menú lateral */
+    flex-shrink: 0;
+    height: 100vh; /* Asegura que el menú ocupe toda la altura */
+}
+
+.content {
+    flex-grow: 1;
+    overflow-y: auto;
+    height: 100vh; /* Asegura que el contenido ocupe toda la altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Cambiar de center a flex-start */
+    align-items: center; /* Centrar horizontalmente el formulario */
+    gap: 20px; /* Añadir espacio entre elementos si es necesario */
+}
+
+/* Ajustar el formulario para que se vea bien */
+.container {
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+    height: auto;
+}
+
+.card {
+    width: 100%;
+    max-width: 90%; /* Limita el ancho máximo del formulario */
+    margin: 20px auto; /* Añadir margen superior e inferior */
+    height: auto;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    #menu-container {
+        width: 100%; /* El menú ocupará todo el ancho en pantallas pequeñas */
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #menu-container.show {
+        transform: translateX(0); /* Mostrar el menú cuando tenga la clase 'show' */
+    }
+
+    .content {
+        padding: 10px;
+        justify-content: flex-start; /* Asegurar que el formulario no esté centrado verticalmente */
+    }
+
+    .card {
+        margin: 10px auto;
+    }
+
+    .row {
+        flex-direction: column; /* Las filas se apilan verticalmente */
+    }
+
+    .col-md-6 {
+        width: 100%; /* Las columnas ocupan todo el ancho */
+    }
+
+    .form-label {
+        font-size: 0.9rem; /* Reducir el tamaño de las etiquetas */
+    }
+
+    .form-control, .form-select {
+        font-size: 0.9rem; /* Reducir el tamaño de los campos de entrada */
+    }
+
+    button {
+        font-size: 1rem; /* Ajustar el tamaño del botón */
+    }
 }
